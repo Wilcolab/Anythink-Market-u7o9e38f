@@ -1,0 +1,22 @@
+# Zero Shot Prompt
+
+This file is reserved for zero-shot prompt instructions or content. Add your prompt details below as needed.
+Write a function that takes a string and converts it to snake_case. The function should:
+- Replace spaces and hyphens with underscores.
+- Insert underscores before uppercase letters (except at the start).
+- Convert all letters to lowercase.
+- Remove any non-alphanumeric characters except underscores.
+
+function toSnakeCase(str) {
+    return str
+        .replace(/[A-Z]/g, (match, offset) => (offset > 0 ? '_' : '') + match)
+        .replace(/[\s\-]+/g, '_')
+        .replace(/[^a-zA-Z0-9_]/g, '')
+        .toLowerCase();
+}
+
+// Test examples
+console.log(toSnakeCase("HelloWorld")); // hello_world
+console.log(toSnakeCase("first name")); // first_name
+console.log(toSnakeCase("user-id")); // user_id
+console.log(toSnakeCase("SCREEN_NAME")); // screen_name
